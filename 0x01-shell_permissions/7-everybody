@@ -1,0 +1,2 @@
+#!/bin/bashi
+chmod ugo*x hello
