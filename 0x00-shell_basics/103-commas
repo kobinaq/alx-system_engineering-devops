@@ -1,2 +1,2 @@
 #!/bin/bash
-(ls -Apm | sort -f) | paste -sd' ' -
+(ls -apm | sort -f) | paste -sd' ' -
