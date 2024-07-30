@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Returns a to-do list information for a given employee ID."""
+"""Returns to-do list information for a given employee ID."""
 import requests
 import sys
 
@@ -21,8 +21,8 @@ if __name__ == "__main__":
         user_response.raise_for_status()
         user = user_response.json()
 
-        t_response = requests.get(f"{url}todos", params={"userId": employee_id})
-        t_response.raise_for_status()
+        todos_response = requests.get(f"{url}todos", params={"userId": employee_id})
+        todos_response.raise_for_status()
         todos = todos_response.json()
 
         completed = [t.get("title") for t in todos if t.get("completed") is True]
