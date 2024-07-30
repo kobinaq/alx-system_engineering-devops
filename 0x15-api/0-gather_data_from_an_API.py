@@ -21,13 +21,16 @@ if __name__ == "__main__":
         user_response.raise_for_status()
         user = user_response.json()
 
-        todos_response = requests.get(f"{url}todos", params={"userId": employee_id})
+        todos_response = requests.get(
+                f"{url}todos", params={"userId": employee_id})
         todos_response.raise_for_status()
         todos = todos_response.json()
 
-        completed = [t.get("title") for t in todos if t.get("completed") is True]
+        completed = [t.get("title")
+                for t in todos if t.get("completed") is True]
 
-        print(f"Employee {user.get('name')} is done with tasks({len(completed)}/{len(todos)}):")
+        print(f"Employee 
+                {user.get('name')} is done with tasks({len(completed)}/{len(todos)}):")
         [print(f"\t {c}") for c in completed]
 
     except requests.RequestException as e:
