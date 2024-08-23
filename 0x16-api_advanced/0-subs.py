@@ -19,7 +19,7 @@ def number_of_subscribers(subreddit):
             return data['data']['subscribers']
         else:
             # Subreddit not found or other error
-            return 0
+            return (0)
     except:
         # Handle any exceptions (e.g., connection errors)
-        return 0
+        return (0)
