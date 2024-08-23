@@ -1,2 +1,6 @@
-#find out why Apache is returning a 500 error.
-sudo strace -f -e trace=file -p $(pgrep apache2 | head -n 1)
+# 0-strace_is_your_friend.pp
+exec { 'fix-wordpress':
+  command => "sed -i 's/phpp/php/g' /var/www/html/wp-settings.php",
+  path    => ['/usr/local/bin','/bin'],
+  onlyif  => "grep -q 'phpp' /var/www/html/wp-settings.php"
+}
